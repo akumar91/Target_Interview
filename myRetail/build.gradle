@@ -1,0 +1,31 @@
+plugins {
+	id 'org.springframework.boot' version '2.2.1.RELEASE'
+	id 'java'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group = 'myRetial.com'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+test {
+    exclude '**/Functional'
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+	implementation 'org.springframework.boot:spring-boot-starter-hateoas'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-cassandra
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-cassandra', version: '2.2.1.RELEASE'
+	testImplementation 'com.jayway.restassured:rest-assured:2.4.1'
+	// JUnit and Mockito
+	testImplementation "junit:junit:4.12"
+	testImplementation 'org.mockito:mockito-core:2.+'
+}
